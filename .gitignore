@@ -1,1 +1,11 @@
 .ipynb_checkpoints
+eursys/*
+CustomLogic/*
+qkeras*
+my-frame-grabber_TEMPLATE_MNIST_octo/*
+*.zip
+*.pyc
+__pycache__/
+*/__init__.cpython-38.pyc
+src/__pycache__/configuration.cpython-38.pyc
+src/__pycache__/__init__.cpython-38.pyc

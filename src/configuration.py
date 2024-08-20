@@ -26,3 +26,31 @@ def check_customlogic_downloads(customlogic_download_dir):
             raise ValueError("Error: More than one CustomLogic download found. Please ensure only one CustomLogic download exists in the target directory.")    
         elif not valid_files:
             raise ValueError("Error: Your CustomLogic download is too old or another error occurred. Ensure you have CustomLogic version 24 or higher.")
+        
+    return valid_files 
+
+def get_camera_model(board_type):
+    """
+    Returns the camera model based on the board type.
+
+    Args:
+        board_type (str): The type of board.
+
+    Returns:
+        str: The camera model corresponding to the board type.
+
+    Raises:
+        ValueError: If the board type is not one of the specified options.
+    """
+
+    # Mapping of board type to camera model
+    board_to_model = {
+        'octo': 'CoaxlinkOcto_1cam',
+        'quad': 'CoaxlinkQuadCxp12_1cam',
+        'qsfp': 'CoaxlinkQsfp_1cam'
+    }
+
+    if board_type in board_to_model:
+        return board_to_model[board_type]
+    else:
+        raise ValueError("Error: please specify one of the following boards: \"octo\", \"quad\", \"qsfp\"")
