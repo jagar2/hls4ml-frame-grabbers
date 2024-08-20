@@ -9,3 +9,5 @@ __pycache__/
 */__init__.cpython-38.pyc
 src/__pycache__/configuration.cpython-38.pyc
 src/__pycache__/__init__.cpython-38.pyc
+my-hls-test/*
+my-hls-test.tar.gz
