@@ -1,3 +1,5 @@
+from ..util.textedit import replace_line 
+
 def gen_stripe_pattern(NUM_STRIPES):
     """
     Generate a stripe pattern based on the number of stripes.
@@ -38,16 +40,5 @@ def replace_stripe_order(file_path, stripe_order):
     # Define the start of the line and the new line to replace it with
     line_start = "static const unsigned stripe_order[NUM_STRIPES]"
     new_line = f"static const unsigned stripe_order[NUM_STRIPES] = {stripe_order};"
-
-    # Read the file
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-
-    # Replace the line
-    with open(file_path, 'w') as file:
-        for line in lines:
-            if line.startswith(line_start):
-                file.write(new_line + "\n")
-                print(f"{line} replaced with {new_line}")
-            else:
-                file.write(line)
+    
+    replace_line(file_path, line_start, new_line)
