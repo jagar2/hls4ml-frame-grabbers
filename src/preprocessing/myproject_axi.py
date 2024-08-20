@@ -1,4 +1,4 @@
-from ..util.textedit import replace_line, multiline_replace_line
+from ..util.textedit import replace_line, multiline_replace_line, replace_lines_in_file
 
 def replace_model_out_depth(file_path, value):
     """
@@ -55,3 +55,8 @@ def replace_pragma_lines(file_path, NUM_STRIPES, verbose=False):
     new_lines = generate_pragma_lines(NUM_STRIPES, verbose)
     
     multiline_replace_line(file_path, line_start, new_lines)
+    
+    
+    start_marker = "/* START CustomLogic: INSERT NETWORK SPLIT ARRAY HLS STREAM PRAGMAS HERE (from jupyter notebook) */"
+    end_marker = "/* END CustomLogic: INSERT NETWORK SPLIT ARRAY HLS STREAM PRAGMAS HERE (from jupyter notebook) */"
+    replace_lines_in_file(file_path, start_marker, end_marker, new_lines)

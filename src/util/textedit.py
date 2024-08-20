@@ -76,9 +76,9 @@ def replace_lines_in_file(file_path, start_marker, end_marker, replacement_lines
     # Check if both markers were found
     if start_idx != -1 and end_idx != -1 and start_idx < end_idx:
         # Keep lines before start marker, add replacement lines, and then keep lines after end marker
-        new_lines = lines[:start_idx + 1]  # Keep the start marker line
-        new_lines.extend([f'    {rl}\n' for rl in replacement_lines])  # Add replacement lines with indentation
-        new_lines.extend(lines[end_idx:])  # Keep the end marker line and lines after it
+        new_lines = lines[:start_idx]  # Keep the start marker line
+        new_lines.extend([f'{rl}\n' for rl in replacement_lines])  # Add replacement lines
+        new_lines.extend(lines[end_idx +1:]) 
 
         # Write the new content back to the file
         with open(file_path, 'w') as file:
